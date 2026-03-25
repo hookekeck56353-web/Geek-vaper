@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-pink: #d63384;
+  --color-brand-purple: #6f42c1;
+  --color-brand-dark: #0a0a0a;
+  
+  @keyframes pulse-wave {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+  
+  @keyframes star-float {
+    0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+.pulse-ring {
+  @apply absolute rounded-full border border-brand-pink/30;
+  animation: pulse-wave 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.star {
+  @apply absolute bg-white rounded-full;
+  animation: star-float linear infinite;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-purple;
+}
+
+body {
+  @apply bg-brand-dark text-white overflow-x-hidden font-sans;
+}
